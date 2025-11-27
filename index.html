@@ -1,153 +1,188 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>INTERNET RADIO</title>
-  <!-- EFI-1 Radio-(WITELITE) -->
-  <!-- Import Google Sans Code -->
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@800&display=swap" rel="stylesheet">
-  <style>
-    body {
-      background: #ffffff;
-      color: #111111;
-      font-family: 'Google Sans Code', sans-serif;
-      margin: 0;
-      padding: 50px;
-      text-align: left; /* centers inline content globally */
+<!DOCTYPE HTML>
+<HTML LANG="EN">
+<HEAD>
+  <META CHARSET="UTF-8">
+  <TITLE>INTERNET RADIO</TITLE>
+  <!-- EFI-1 RADIO-(WITELITE) -->
+  <!-- IMPORT GOOGLE SANS CODE -->
+  <LINK HREF="HTTPS://FONTS.GOOGLEAPIS.COM/CSS2?FAMILY=GOOGLE+SANS+CODE:WGHT@800&DISPLAY=SWAP" REL="STYLESHEET">
+  <STYLE>
+    BODY {
+      BACKGROUND: #FFFFFF;
+      COLOR: #111111;
+      FONT-FAMILY: 'GOOGLE SANS CODE', SANS-SERIF;
+      MARGIN: 0;
+      PADDING: 50PX;
+      TEXT-ALIGN: LEFT; /* CENTERS INLINE CONTENT GLOBALLY */
     }
 
-    header {
-      font-size: 2.5em;
-      margin-bottom: 25px;
-      padding-bottom: 20px;
-      border-bottom: 5px solid #FFD700;
-      box-shadow: 0 5px 0 -5px rgba(255, 215, 0, 0.5),
-                  0 0 20px rgba(255, 215, 0, 0.5);
-      text-align: left; /* centers the header text */
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 5px;
+    HEADER {
+      FONT-SIZE: 2.5EM;
+      MARGIN-BOTTOM: 25PX;
+      PADDING-BOTTOM: 20PX;
+      BORDER-BOTTOM: 5PX SOLID #FFD200;
+      BOX-SHADOW: 0 5PX 0 -5PX RGBA(255, 215, 0, 0.5),
+                  0 0 20PX RGBA(255, 215, 0, 0.5);
+      TEXT-ALIGN: LEFT; /* CENTERS THE HEADER TEXT */
+      FONT-WEIGHT: 800;
+      TEXT-TRANSFORM: UPPERCASE;
+      LETTER-SPACING: 5PX;
     }
 
-    .controls {
-      margin-bottom: 25px;
-      display: inline-block;
-      background: #ffffff;
-      border: 5px solid #FFD700;
-      border-radius: 50px;
-      padding: 10px 15px;
-      box-shadow: 0 0 15px rgba(255, 215, 0, 0.50),
-                  0 10px 25px rgba(0,0,0,0.05);
+    .CONTROLS {
+      MARGIN-BOTTOM: 25PX;
+      DISPLAY: INLINE-BLOCK;
+      BACKGROUND: #FFFFFF;
+      BORDER: 5PX SOLID #FFD200;
+      BORDER-RADIUS: 50PX;
+      PADDING: 10PX 15PX;
+      BOX-SHADOW: 0 0 15PX RGBA(255, 215, 0, 0.50),
+                  0 10PX 25PX RGBA(0,0,0,0.05);
     }
 
-    .btn {
-      display: inline-block;
-      margin: 0 10px;
-      font-size: 1em;
-      color: #111111;
-      background: #ffffff;
-      padding: 10px 25px;
-      border-radius: 25px;
-      border: 1px solid #e6e6e6;
-      box-shadow: inset 0 0 5px rgba(0,0,0,0.05),
-                  0 0 10px rgba(255, 215, 0, 0.50);
-      font-weight: 800;
+    .BTN {
+      DISPLAY: INLINE-BLOCK;
+      MARGIN: 0 10PX;
+      FONT-SIZE: 1EM;
+      COLOR: #111111;
+      BACKGROUND: #FFFFFF;
+      PADDING: 10PX 25PX;
+      BORDER-RADIUS: 25PX;
+      BORDER: 1PX SOLID #E1E1E1;
+      BOX-SHADOW: INSET 0 0 5PX RGBA(0,0,0,0.05),
+                  0 0 10PX RGBA(255, 215, 0, 0.50);
+      FONT-WEIGHT: 800;
     }
 
-    .station-card {
-      background: #f7f7f7;
-      border: 2px solid #e6e6e6;
-      border-radius: 16px;
-      padding: 26px;
-      margin: 26px auto;
-      max-width: 460px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06),
-                  0 0 14px rgba(255, 215, 0, 0.30);
+    .STATION-CARD {
+      BACKGROUND: #F5F5F5;
+      BORDER: 5PX SOLID #E1E1E1;
+      BORDER-RADIUS: 15PX;
+      PADDING: 25PX;
+      MARGIN: 25PX AUTO;
+      MAX-WIDTH: 450PX;
+      BOX-SHADOW: 0 5PX 15PX RGBA(0,0,0,0.06),
+                  0 0 15PX RGBA(255, 215, 0, 0.25);
     }
 
-    h2 {
-      color: #333333;
-      margin-top: 0;
-      margin-bottom: 16px;
-      text-shadow: 0 0 8px rgba(255, 215, 0, 0.30);
+    H2 {
+      COLOR: #323232;
+      MARGIN-TOP: 0;
+      MARGIN-BOTTOM: 15PX;
+      TEXT-SHADOW: 0 0 10PX RGBA(255, 215, 0, 0.25);
     }
 
-    iframe {
-      border: 2px solid #FFD700;
-      width: 100%;
-      max-width: 360px;
-      height: 380px;
-      border-radius: 12px;
-      background: #ffffff;
-      box-shadow: 0 0 18px rgba(255, 215, 0, 0.55),
-                  0 8px 22px rgba(0,0,0,0.06);
+    IFRAME {
+      BORDER: 5PX SOLID #FFD200;
+      WIDTH: 100%;
+      MAX-WIDTH: 350PX;
+      HEIGHT: 400PX;
+      BORDER-RADIUS: 10PX;
+      BACKGROUND: #FFFFFF;
+      BOX-SHADOW: 0 0 20PX RGBA(255, 215, 0, 0.5),
+                  0 10PX 25PX RGBA(0,0,0,0.05);
     }
 
-    .counter-container img {
-      display: block;
-      margin: 8px auto;
-      background: #ffffff;
-      padding: 8px;
-      border-radius: 8px;
-      border: 1px solid #FFD700;
-      box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.30),
-                  0 4px 12px rgba(0,0,0,0.06);
+    .COUNTER-CONTAINER IMG {
+      DISPLAY: BLOCK;
+      MARGIN: 10PX AUTO;
+      BACKGROUND: #FFFFFF;
+      PADDING: 10PX;
+      BORDER-RADIUS: 10PX;
+      BORDER: 1PX SOLID #FFD200;
+      BOX-SHADOW: INSET 0 0 10PX RGBA(255, 215, 0, 0.25),
+                  0 5PX 10PX RGBA(0,0,0,0.05);
     }
 
-    footer {
-      margin-top: 40px;
-      font-size: 0.95em;
-      color: #333333;
-      padding-top: 14px;
-      border-top: 2px solid #e6e6e6;
-      box-shadow: 0 -6px 12px rgba(0,0,0,0.06);
+    FOOTER {
+      MARGIN-TOP: 50PX;
+      FONT-SIZE: 1EM;
+      COLOR: #323232;
+      PADDING-TOP: 15PX;
+      BORDER-TOP: 5PX SOLID #E1E1E1;
+      BOX-SHADOW: 0 -5PX 10PX RGBA(0,0,0,0.05);
     }
-    footer a {
-      color: #111111;
-      text-decoration: none;
-      font-weight: 800;
-      border-bottom: 2px solid #FFD700;
-      padding-bottom: 2px;
+    FOOTER A {
+      COLOR: #111111;
+      TEXT-DECORATION: NONE;
+      FONT-WEIGHT: 800;
+      BORDER-BOTTOM: 5PX SOLID #FFD200;
+      PADDING-BOTTOM: 5PX;
     }
-    footer a:hover {
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.30);
+    FOOTER A:HOVER {
+      BOX-SHADOW: 0 0 10PX RGBA(255, 215, 0, 0.25);
     }
-  </style>
-</head>
-<body>
-  <!-- Media Controls at top -->
-  <div class="controls">
-    <span class="btn">|<<⏮</span>
-    <span class="btn">⏯>||</span>
-    <span class="btn">⏭>>|</span>
-  </div>
+  </STYLE>
+</HEAD>
+<BODY>
+  <!-- MEDIA CONTROLS AT TOP -->
+  <DIV CLASS="CONTROLS">
+    <SPAN CLASS="BTN">|<<⏮</SPAN>
+    <SPAN CLASS="BTN">⏯>||</SPAN>
+    <SPAN CLASS="BTN">⏭>>|</SPAN>
+  </DIV>
 
-  <header>EFM INTERNET RADIO</header>
+  <HEADER>EFM INTERNET RADIO</HEADER>
 
-  <div class="station-card">
-    <h2>Radio</h2>
-    <iframe src="https://www.radiojar.com/widget/radio/dz93m1q1qxcwv/player/?trackinfo&show_now&autoplay_off"></iframe>
-    <div class="counter-container">
-      <a href="https://hits.sh/efi-1.github.io/Radio/">
-        <img alt="Daily Hits" src="https://hits.sh/efi-1.github.io/Radio.svg?view=today-total"/>
-      </a>
-      <a href="https://hits.sh/efi-1.github.io/Radio/">
-        <img alt="Total Hits" src="https://hits.sh/efi-1.github.io/Radio.svg"/>
-      </a>
-    </div>
-  </div>
+  <DIV CLASS="STATION-CARD">
+    <H2>RADIO</H2>
+    <IFRAME SRC="HTTPS://WWW.RADIOJAR.COM/WIDGET/RADIO/DZ93M1Q1QXCWV/PLAYER/?TRACKINFO&SHOW_NOW&AUTOPLAY_OFF"></IFRAME>
+    <DIV CLASS="COUNTER-CONTAINER">
+      <A HREF="HTTPS://HITS.SH/EFI-1.GITHUB.IO/RADIO/">
+        <IMG ALT="DAILY HITS" SRC="HTTPS://HITS.SH/EFI-1.GITHUB.IO/RADIO.SVG?VIEW=TODAY-TOTAL"/>
+      </A>
+      <A HREF="HTTPS://HITS.SH/EFI-1.GITHUB.IO/RADIO/">
+        <IMG ALT="TOTAL HITS" SRC="HTTPS://HITS.SH/EFI-1.GITHUB.IO/RADIO.SVG"/>
+      </A>
+    </DIV>
+  </DIV>
 
-  <footer>
+  <FOOTER>
+<P STYLE="FONT-FAMILY:'GOOGLE SANS CODE','GOOGLE SANS',SYSTEM-UI,SANS-SERIF; FONT-WEIGHT:800; MARGIN:0; LINE-HEIGHT:1;">
+  <!-- WITELITE THEME -->
+  <SPAN STYLE="COLOR:#FFFFFF;
+               BACKGROUND:LINEAR-GRADIENT(180DEG,#000000 0%,#282828 90%);
+               PADDING:0 .5EM;
+               BORDER-RADIUS:9999PX;
+               POSITION:RELATIVE;
+               TEXT-SHADOW:
+                 0 0 1PX #FFFF00,   /* INNER YELLOW GLOW */
+                 0 0 5PX #FFFF00,
+                 0 0 10PX #F0C332,  /* GOLDEN GLOW */
+                 0 0 15PX #F0C332;">
     "WITELITE THEME"
-    <br>
+    <SPAN STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:0; RIGHT:0; HEIGHT:50%;
+                 BORDER-RADIUS:9999PX;
+                 BACKGROUND:LINEAR-GRADIENT(TO BOTTOM,RGBA(255,255,255,0.5),RGBA(255,255,255,0));
+                 POINTER-EVENTS:NONE;"></SPAN>
+  </SPAN>
+  
+  <!-- (NEWEST TOPMOST) -->
+  <SPAN STYLE="COLOR:#646464;
+               BACKGROUND:LINEAR-GRADIENT(180DEG,#E1FFFF 0%,#CDFAFF 90%);
+               PADDING:0 .5EM;
+               BORDER-RADIUS:9999PX;
+               MARGIN-LEFT:1EM;
+               POSITION:RELATIVE;
+               TEXT-SHADOW:
+                 0 0 1PX #FFFF00,   /* INNER YELLOW GLOW */
+                 0 0 5PX #FFFF00,
+                 0 0 10PX #F0C332,  /* GOLDEN GLOW */
+                 0 0 15PX #F0C332;">
     (NEWEST TOPMOST)
-    <br>
-    2025 <a href="https://efi-1.github.io/_The-EXT-FAM-GHOSTS-REUNION/">THE EXT FAM GHOSTS MASS CASUALTY INCIDENT</a>
-    <br>
+    <SPAN STYLE="POSITION:ABSOLUTE; TOP:0; LEFT:0; RIGHT:0; HEIGHT:50%;
+                 BORDER-RADIUS:9999PX;
+                 BACKGROUND:LINEAR-GRADIENT(TO BOTTOM,RGBA(255,255,255,0.5),RGBA(255,255,255,0));
+                 POINTER-EVENTS:NONE;"></SPAN>
+  </SPAN>
+</P>
+    <BR>
+    2025 <A HREF="https://efi-1.github.io/_THE-EXT-FAM-GHOSTS-REUNION/">THE EXT FAM GHOSTS MASS CASUALTY INCIDENT</A>
+    <BR>
     CAPPING ON: [EVERY MORNING] EVERYTHING REMAINS AS REALISTIC (CONVINCING) AS IT SEEMS...
-    <br>
-    <a href="https://drive.google.com/file/d/1_LgUTHuGXnhTHFrlb5rTREh6USvWyycK/">"'PUPUSTELERIA - 'The Shooting of Smith"</a>
-    <br>
-  </footer>
-</body>
-</html>
+    <BR>
+    <A HREF="HTTPS://DRIVE.GOOGLE.COM/FILE/D/1_LGUTHUGXNHTHFRLB5RTREH6USVWYYCK/">"'PUPUSTELERIA - 'THE SHOOTING OF SMITH"</A>
+    <BR>
+  </FOOTER>
+</BODY>
+</HTML>
