@@ -1,168 +1,48 @@
 <!DOCTYPE html>
-<!-- WITELITE: "HEY REAL-DEAL WITELITE, 'IT'S PORCELAIN'" -->
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>WITELITE RADIO — WHITE MARBLE WORLD</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dreamy Portal Exhibit ✨</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@800&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --porcelain-0: #ffffff;
-      --porcelain-1: #fafafa;
-      --porcelain-2: #f5f7f8;
-      --porcelain-3: #eef1f3;
-      --vein-0: #dfe5ea;
-      --vein-1: #cfd6dc;
-      --shadow-soft: rgba(0,0,0,0.08);
-      --shadow-veil: rgba(0,0,0,0.04);
-
-      --radius-card: 22px;
-      --radius-pill: 9999px;
-      --border-porcelain: 6px;
-      --border-fine: 2px;
-      --space: 14px;
-      --space-lg: 28px;
-      --space-xl: 44px;
-    }
-
-    body {
-      margin: 0;
-      color: #ffffff;
-      font-family: 'Google Sans Code', system-ui, sans-serif;
-      font-weight: 800;
-      letter-spacing: 0.75px;
-      line-height: 1.4;
-      background:
-        linear-gradient(180deg, var(--porcelain-0) 0%, var(--porcelain-1) 100%),
-        radial-gradient(1200px 800px at 20% 10%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
-        radial-gradient(900px 600px at 80% 0%, rgba(250,250,255,0.7), rgba(255,255,255,0)),
-        radial-gradient(1200px 600px at 15% 65%, rgba(223,229,234,0.40), rgba(223,229,234,0)),
-        radial-gradient(700px 300px at 75% 55%, rgba(207,214,220,0.20), rgba(207,214,220,0));
-      background-blend-mode: normal, screen, screen, multiply, multiply;
-      min-height: 100vh;
-      padding: var(--space-xl);
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background: linear-gradient(90deg,
-        rgba(255,255,255,0) 0%,
-        rgba(255,255,255,0.5) 48%,
-        rgba(255,255,255,0) 100%);
-      mix-blend-mode: soft-light;
-      animation: sweep 12s linear infinite;
-    }
-    @keyframes sweep {
-      0%   { transform: translateX(-30%); opacity: 0.25; }
-      50%  { transform: translateX(50%);  opacity: 0.35; }
-      100% { transform: translateX(120%); opacity: 0.25; }
-    }
-
-    .frame { max-width: 1200px; margin: 0 auto; }
-
-    header.site {
-      display: flex;
-      align-items: center;
-      gap: var(--space-lg);
-      margin-bottom: var(--space-xl);
-      padding: var(--space-lg);
-      border-radius: var(--radius-card);
-      border: var(--border-porcelain) solid var(--porcelain-2);
-      background: linear-gradient(180deg, var(--porcelain-0), var(--porcelain-2));
-      box-shadow: 0 30px 60px var(--shadow-soft);
-    }
-
-    .brand,
-    h2.section,
-    .badge,
-    footer.site a,
-    .tag,
-    .tag-light {
-      color: #ffffff;
-      text-shadow:
-        0 1px 2px rgba(0,0,0,0.25),
-        0 0 6px rgba(0,0,0,0.15);
-    }
-
-    .badge {
-      display: inline-flex;
-      gap: 10px;
-      padding: 8px 16px;
-      border-radius: var(--radius-pill);
-      border: var(--border-fine) solid var(--porcelain-3);
-      background: linear-gradient(180deg, #fff, var(--porcelain-2));
-      box-shadow: 0 0 18px rgba(0,0,0,0.25);
-    }
-
-    .card {
-      margin: var(--space-xl) auto;
-      max-width: 640px;
-      padding: var(--space-xl);
-      border-radius: var(--radius-card);
-      border: var(--border-porcelain) solid var(--porcelain-2);
-      background: linear-gradient(180deg, var(--porcelain-0), var(--porcelain-2));
-      box-shadow: 0 40px 80px var(--shadow-soft);
-      position: relative;
-    }
-
-    .player {
-      border-radius: 16px;
-      border: var(--border-porcelain) solid var(--porcelain-3);
-      width: 100%;
-      max-width: 480px;
-      height: 420px;
-      background: #ffffff;
-      box-shadow: 0 0 24px rgba(0,0,0,0.25);
-      display: block;
-    }
-
-    .meta { margin-top: var(--space-lg); }
-    .meta a { border-bottom: var(--border-fine) solid var(--porcelain-3); }
-
-    footer.site {
-      margin-top: var(--space-xl);
-      padding: var(--space-xl);
-      border-top: var(--border-porcelain) solid var(--porcelain-2);
-      background: linear-gradient(180deg, var(--porcelain-1), var(--porcelain-2));
-    }
-    .footer-links { display: inline-flex; gap: var(--space); }
-  </style>
+  <!-- ============================================================
+       LINK TO CSS
+       ------------------------------------------------------------
+       External stylesheet holds all portal/fog styling.
+       Keep CSS modular in assets/css/styles.css.
+  ============================================================ -->
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-
 <body>
-  <div class="frame">
-    <header class="site">
-      <div class="brand">EFM INTERNET RADIO</div>
-      <div class="badge">WITELITE • PORCELAIN</div>
-    </header>
-
-    <section class="card">
-      <h2 class="section">Player</h2>
-      <iframe
-        class="player"
-        src="https://www.radiojar.com/widget/radio/dz93m1q1qxcwv/player/?trackinfo&show_now&autoplay_off"
-        title="WITELITE Player"
-        loading="lazy">
-      </iframe>
-      <div class="meta">
-        <a href="https://hits.sh/efi-1.github.io/WITELITE/" target="_blank">STATS</a>
-      </div>
-    </section>
-
-    <footer class="site">
-      <div class="footer-links">
-        <a href="https://efi-1.github.io/Radio/" target="_blank">⬅ Back to EFI‑Radio 1</a>
-      </div>
-      <div class="tag">WITELITE NEWEST TOPMOST<br></div>
-      <div class="tag tag-light">
-      [<a href="https://github.com/EFI-1/Radio" target="_blank">EFI-1 Radio on Github</a>];
-      </div>
-    </footer>
+  <!-- ============================================================
+       PORTAL CONTAINER
+       ------------------------------------------------------------
+       This is the dreamy exhibit area. Paste lifted HTML fragments
+       (like emoji tables) inside this div. Fog overlays and dreamy
+       styling are applied via CSS.
+  ============================================================ -->
+  <div class="portal">
+    <h1>Dreamy Portal ✨</h1>
+    <table>
+      <tr><th>Emoji</th><th>Name</th></tr>
+      <tr><td>✨</td><td>Sparkles</td></tr>
+    </table>
   </div>
+
+  <!-- ============================================================
+       LEGEND CONTAINER
+       ------------------------------------------------------------
+       Shows keyboard shortcuts with emojis so users know how to
+       switch themes. Populated by script.js.
+  ============================================================ -->
+  <div id="legend"></div>
+
+  <!-- ============================================================
+       LINK TO JAVASCRIPT
+       ------------------------------------------------------------
+       External script handles theme switching + keyboard controls.
+       Keep JS modular in assets/js/script.js.
+  ============================================================ -->
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
