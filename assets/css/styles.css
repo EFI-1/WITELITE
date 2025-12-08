@@ -1,0 +1,179 @@
+/* ============================================================
+   GLOBAL CONFIGURATION VIA CSS VARIABLES
+   ------------------------------------------------------------
+   Centralized values for colors, opacities, blur, fog, etc.
+   Edit these variables to change the look without touching
+   the rest of the CSS.
+=========================================================== */
+:root {
+  /* Background gradient colors */
+  --bg-main: #191932;   /* dominant deep blue */
+  --bg-fade: #000000;   /* fade into black */
+
+  /* Portal container styling */
+  --portal-bg-opacity: 0.05;   /* transparency of portal background */
+  --portal-border-opacity: 0.15; /* faint border opacity */
+  --portal-blur: 8px;          /* blur strength */
+  --portal-glow-opacity: 0.15; /* glow intensity */
+
+  /* Fog layer 1 */
+  --fog1-color: rgba(255,255,255,0.08); /* faint white haze */
+  --fog1-size: 70%;                     /* gradient fade size */
+  --fog1-speed: 60s;                    /* animation duration */
+
+  /* Fog layer 2 */
+  --fog2-color: rgba(200,200,255,0.05); /* bluish haze */
+  --fog2-size: 80%;                     /* gradient fade size */
+  --fog2-speed: 90s;                    /* slower animation */
+
+  /* Text styling */
+  --heading-color: rgba(255,255,255,0.8); /* heading text color */
+  --heading-glow: rgba(255,255,255,0.4);  /* heading glow */
+  --body-text: rgba(255,255,255,0.75);    /* body text color */
+  --table-border: rgba(255,255,255,0.1);  /* table border color */
+  --table-header-bg: rgba(255,255,255,0.08); /* header background */
+}
+
+/* ============================================================
+   PAGE BACKGROUND
+   ------------------------------------------------------------
+   Full viewport gradient background. Mostly deep blue fading
+   into black at the top-right corner.
+=========================================================== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  background: linear-gradient(
+    to top right,
+    var(--bg-main) 85%,   /* 85% deep blue */
+    var(--bg-fade) 100%   /* fade into black */
+  );
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* prevent fog overflow from scrolling */
+}
+
+/* ============================================================
+   PORTAL CONTAINER
+   ------------------------------------------------------------
+   The dreamy exhibit area. Transparent, blurred, glowing.
+   Fog overlays are attached via ::before and ::after.
+=========================================================== */
+.portal {
+  position: relative;
+  max-width: 900px;
+  width: 90%;
+  padding: 1rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, var(--portal-bg-opacity));
+  border: 1px solid rgba(255, 255, 255, var(--portal-border-opacity));
+  backdrop-filter: blur(var(--portal-blur));
+  -webkit-backdrop-filter: blur(var(--portal-blur));
+  box-shadow: 0 0 20px rgba(255, 255, 255, var(--portal-glow-opacity));
+  overflow: hidden; /* contain fog layers */
+}
+
+/* ============================================================
+   FOG OVERLAY LAYER 1
+   ------------------------------------------------------------
+   White haze drifting slowly across the portal.
+=========================================================== */
+.portal::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, var(--fog1-color) 0%, transparent var(--fog1-size));
+  animation: drift1 var(--fog1-speed) linear infinite;
+  pointer-events: none; /* fog doesn’t block interactions */
+}
+
+/* ============================================================
+   FOG OVERLAY LAYER 2
+   ------------------------------------------------------------
+   Bluish haze drifting at a different speed/direction for depth.
+=========================================================== */
+.portal::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, var(--fog2-color) 0%, transparent var(--fog2-size));
+  animation: drift2 var(--fog2-speed) linear infinite;
+  pointer-events: none;
+}
+
+/* ============================================================
+   FOG ANIMATIONS
+   ------------------------------------------------------------
+   Drift1: clockwise rotation + translation.
+   Drift2: counter-clockwise rotation + translation.
+=========================================================== */
+@keyframes drift1 {
+  from { transform: translate(0,0) rotate(0deg); }
+  to   { transform: translate(15%, -15%) rotate(360deg); }
+}
+
+@keyframes drift2 {
+  from { transform: translate(-10%, 10%) rotate(0deg); }
+  to   { transform: translate(10%, -10%) rotate(-360deg); }
+}
+
+/* ============================================================
+   HEADING STYLES
+   ------------------------------------------------------------
+   Slightly transparent text with a faint glow.
+=========================================================== */
+h1 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--heading-color);
+  text-shadow: 0 0 6px var(--heading-glow);
+}
+
+/* ============================================================
+   TABLE STYLES
+   ------------------------------------------------------------
+   For lifted HTML fragments (like emoji tables).
+   Muted text, faint borders, subtle header background.
+=========================================================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid var(--table-border);
+  padding: 0.5rem;
+  text-align: left;
+  color: var(--body-text);
+}
+
+th {
+  background: var(--table-header-bg);
+}
+
+/* ============================================================
+   LEGEND STYLES
+   ------------------------------------------------------------
+   Floating legend showing keyboard shortcuts (added by JS).
+=========================================================== */
+#legend {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  color: #fff;
+  font-size: 1rem;
+  background: rgba(0,0,0,0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-shadow: 0 0 6px rgba(255,255,255,0.5);
+}
