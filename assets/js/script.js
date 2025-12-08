@@ -1,16 +1,20 @@
 /* ============================================================
-   Dreamy Portal Theme Switcher
+   Dreamy Portal Theme Switcher (Keyboard Controls + Legend)
    ------------------------------------------------------------
-   This script toggles CSS variables defined in :root to change
-   the look and feel of the portal. Each theme is a set of values
-   for background, fog, and text. Modular design allows easy
-   extension with new themes.
+   - Press 1 → Dreamy ✨
+   - Press 2 → Misty 🌫️
+   - Press 3 → Cosmic 🌌
+   Themes are applied by swapping CSS variables defined in :root.
+   A floating legend shows the shortcuts.
 =========================================================== */
 
 /* === Grab the root element (where CSS variables live) === */
 const root = document.documentElement;
 
-/* === Define theme presets as objects === */
+/* === Define theme presets as objects ===
+   Each theme is modular: change values here to adjust look.
+   Add new themes by extending this object.
+=========================================================== */
 const themes = {
   dreamy: {
     '--bg-main': '#191932',
@@ -38,56 +42,85 @@ const themes = {
   }
 };
 
-/* === Function to apply a theme === */
+/* === Apply a theme by name ===
+   Loops through variables in the theme object and sets them.
+=========================================================== */
 function applyTheme(themeName) {
   const theme = themes[themeName];
-  if (!theme) {
-    console.warn(`Theme "${themeName}" not found.`);
-    return;
-  }
-  // Loop through each variable in the theme and set it
+  if (!theme) return;
   for (const variable in theme) {
     root.style.setProperty(variable, theme[variable]);
   }
   console.log(`Applied theme: ${themeName}`);
 }
 
-/* === Example usage ===
-   You can call applyTheme('dreamy'), applyTheme('misty'),
-   or applyTheme('cosmic') from anywhere in your code.
-   For demo purposes, we’ll add simple buttons.
+/* === Keyboard shortcuts ===
+   Listen for key presses and apply themes accordingly.
+   Also show overlay feedback.
+=========================================================== */
+document.addEventListener('keydown', (event) => {
+  switch (event.key) {
+    case '1':
+      applyTheme('dreamy');
+      showOverlay('✨ Dreamy');
+      break;
+    case '2':
+      applyTheme('misty');
+      showOverlay('🌫️ Misty');
+      break;
+    case '3':
+      applyTheme('cosmic');
+      showOverlay('🌌 Cosmic');
+      break;
+  }
+});
+
+/* === Overlay feedback ===
+   Shows emoji + name briefly in the center when theme changes.
+   Modular: adjust styling or duration as needed.
+=========================================================== */
+function showOverlay(label) {
+  const overlay = document.createElement('div');
+  overlay.textContent = label;
+  overlay.style.position = 'fixed';
+  overlay.style.top = '50%';
+  overlay.style.left = '50%';
+  overlay.style.transform = 'translate(-50%, -50%)';
+  overlay.style.fontSize = '2rem';
+  overlay.style.color = '#fff';
+  overlay.style.textShadow = '0 0 10px rgba(255,255,255,0.7)';
+  overlay.style.background = 'rgba(0,0,0,0.4)';
+  overlay.style.padding = '0.5rem 1rem';
+  overlay.style.borderRadius = '8px';
+  overlay.style.zIndex = '9999';
+  document.body.appendChild(overlay);
+
+  setTimeout(() => overlay.remove(), 1000); // disappear after 1s
+}
+
+/* === Legend display ===
+   Shows available shortcuts in bottom corner with emojis.
+   Modular: update if you add new themes.
+=========================================================== */
+function showLegend() {
+  const legend = document.getElementById('legend');
+  legend.style.position = 'fixed';
+  legend.style.bottom = '1rem';
+  legend.style.left = '1rem';
+  legend.style.color = '#fff';
+  legend.style.fontSize = '1rem';
+  legend.style.background = 'rgba(0,0,0,0.3)';
+  legend.style.padding = '0.5rem 1rem';
+  legend.style.borderRadius = '6px';
+  legend.style.textShadow = '0 0 6px rgba(255,255,255,0.5)';
+  legend.textContent = '1 ✨  2 🌫️  3 🌌';
+}
+
+/* === Initialize on page load ===
+   Apply default theme and show legend.
 =========================================================== */
 document.addEventListener('DOMContentLoaded', () => {
-  // Create a container for theme buttons
-  const controls = document.createElement('div');
-  controls.style.position = 'fixed';
-  controls.style.bottom = '1rem';
-  controls.style.right = '1rem';
-  controls.style.display = 'flex';
-  controls.style.gap = '0.5rem';
-
-  // Helper to make a button
-  function makeButton(label, theme) {
-    const btn = document.createElement('button');
-    btn.textContent = label;
-    btn.style.padding = '0.5rem 1rem';
-    btn.style.background = 'rgba(255,255,255,0.1)';
-    btn.style.color = '#fff';
-    btn.style.border = '1px solid rgba(255,255,255,0.2)';
-    btn.style.borderRadius = '6px';
-    btn.style.cursor = 'pointer';
-    btn.addEventListener('click', () => applyTheme(theme));
-    return btn;
-  }
-
-  // Add buttons for each theme
-  controls.appendChild(makeButton('Dreamy', 'dreamy'));
-  controls.appendChild(makeButton('Misty', 'misty'));
-  controls.appendChild(makeButton('Cosmic', 'cosmic'));
-
-  // Add controls to the page
-  document.body.appendChild(controls);
-
-  // Apply default theme on load
-  applyTheme('dreamy');
+  applyTheme('dreamy'); // default theme
+  showOverlay('✨ Dreamy');
+  showLegend(); // show shortcuts legend
 });
